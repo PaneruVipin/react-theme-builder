@@ -15,3 +15,7 @@ export const RTB_Provider = () => {
 export const ColorSwitcher = () => {
   return <ColorBoxes />;
 };
+
+export const DarkModeSwitcher = () => {
+  return <DarkModeSwitcher />;
+};

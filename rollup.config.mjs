@@ -13,8 +13,8 @@ const plugins = [
   external(),
   resolve({ extensions }),
   babel({ extensions, babelHelpers: "bundled" }),
-  commonjs(),
-  terser(),
+  // commonjs(),
+  // terser(),
   postcss({
     plugins: [autoprefixer(), cssnano()],
     extract: true,

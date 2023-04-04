@@ -33,10 +33,12 @@ export default [
         globals: {
           react: "React",
         },
+        sourcemap: true,
       },
       {
         file: "dist/themeToolkit.esm.js",
         format: "es",
+        sourcemap: true,
       },
     ],
     plugins,

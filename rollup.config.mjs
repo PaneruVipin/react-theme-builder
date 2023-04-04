@@ -1,26 +1,45 @@
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import external from "rollup-plugin-peer-deps-external";
+import resolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import postcss from "rollup-plugin-postcss";
-import image from "@rollup/plugin-image";
+import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 
-export default {
-  input: "src/App.js",
-  output: [
-    {
-      file: "dist/index.js",
-      format: "cjs",
-      sourcemap: true,
-      plugins: [terser()],
-    },
-  ],
-  external: ["react", "react-dom"],
-  plugins: [
-    babel({
-      exclude: "node_modules/**",
-    }),
-    postcss({
-      extract: true,
-    }),
-    image(),
-  ],
-};
+const extensions = [".js", ".jsx", ".ts", ".tsx"];
+
+const plugins = [
+  external(),
+  resolve({ extensions }),
+  babel({ extensions, babelHelpers: "bundled" }),
+  commonjs(),
+  terser(),
+  postcss({
+    plugins: [autoprefixer(), cssnano()],
+    extract: true,
+    extensions: [".css"],
+  }),
+];
+
+export default [
+  {
+    input: "src/index.js",
+    output: [
+      {
+        file: "dist/themeToolkit.js",
+        format: "umd",
+        name: "MyLibrary",
+        globals: {
+          react: "React",
+        },
+      },
+      {
+        file: "dist/themeToolkit.esm.js",
+        format: "es",
+      },
+    ],
+    plugins,
+    external: ['react'],
+  },
+];

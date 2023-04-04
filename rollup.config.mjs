@@ -28,8 +28,13 @@ export default [
     output: [
       {
         file: "dist/themeToolkit.js",
-        format: "cjs",
+        name:"hii",
+        format: "umd",
         sourcemap: true,
+        globals: {
+          react: 'React',
+          'common-coding-tools/random': 'random'
+        }
       },
       {
         file: "dist/themeToolkit.esm.js",

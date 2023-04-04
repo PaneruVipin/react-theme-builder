@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import BackGround from "./App";
+import BackGround, { RTB_Provider } from "./App";
 import ThemeProvider from "./lib/themeProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BackGround />
-    </ThemeProvider>
+    <RTB_Provider />
   </React.StrictMode>
 );

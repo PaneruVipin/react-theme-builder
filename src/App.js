@@ -1,35 +1,17 @@
-import { useContext, useEffect } from "react";
-import { ThemeContext } from "./lib/themeProvider";
-import "./App.css"
+import Background from "./lib/backGround";
+import ColorBoxes from "./lib/colorBoxes";
+import ThemeProvider from "./lib/themeProvider";
 
-function Background({ children, ...props }) {
-  const { theme, setTheme1 } = useContext(ThemeContext);
-  useEffect(() => {
-    const darkMode = localStorage.getItem("darkMode");
-    if (darkMode == "enable") {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+export const RTB_Provider = () => {
   return (
-    <div
-      className={`inset-0   ${
-        theme.backGroundSize == "half"
-          ? "h-[50vh]"
-          : theme.backGroundSize == "header"
-          ? "h-0"
-          : ""
-      }  fixed  ${theme.backGround} ${theme.gradiant}`}
-    >
-      <div className="dark:bg-[rgba(0,0,0,0.39)] dark:text-white overflow-y-auto md:scrollbar-thin inset-0 fixed">
-        {children}
-      </div>
-      <div
-        className={`w-full  h-full 
-     ${theme.art}
-      `}
-      ></div>
-    </div>
+    <ThemeProvider>
+      <Background>
+        <ColorSwitcher />
+      </Background>
+    </ThemeProvider>
   );
-}
+};
 
-export default Background ;
+export const ColorSwitcher = () => {
+  return <ColorBoxes />;
+};

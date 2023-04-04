@@ -9,7 +9,6 @@ export default {
     {
       file: "dist/index.js",
       format: "cjs",
-      // name: 'MyApp',
       sourcemap: true,
       plugins: [terser()],
     },

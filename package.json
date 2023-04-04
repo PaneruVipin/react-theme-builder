@@ -6,7 +6,6 @@
   ],
   "main": "dist/themeToolkit.js",
   "module": "dist/themeToolkit.esm.js",
-  "umd:main": "dist/themeToolkit.umd.js",
   "dependencies": {
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",

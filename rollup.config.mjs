@@ -28,28 +28,14 @@ export default [
     output: [
       {
         file: "dist/themeToolkit.js",
-        name:"hii",
-        format: "umd",
-        sourcemap: true,
-        globals: {
-          react: 'React',
-          'common-coding-tools/random': 'random'
-        }
+        format: "cjs",
+        sourcemap: true
       },
       {
         file: "dist/themeToolkit.esm.js",
         format: "es",
         sourcemap: true,
-      },
-      {
-        file: "dist/themeToolkit.umd.js",
-        format: 'umd',
-        name: 'MyGlobalModule',
-        globals: {
-          react: 'React',
-          'common-coding-tools/random': 'random'
-        }
-      },
+      }
     ],
     plugins,
     external: ['react'],

@@ -24,7 +24,7 @@ const plugins = [
 
 export default [
   {
-    input: "src/index.js",
+    input: "src/App.js",
     output: [
       {
         file: "dist/themeToolkit.js",

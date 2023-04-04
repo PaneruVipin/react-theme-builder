@@ -28,7 +28,7 @@ export default [
     output: [
       {
         file: "dist/themeToolkit.js",
-        format: "umd",
+        format: "cjs",
         name: "MyLibrary",
         globals: {
           react: "React",
